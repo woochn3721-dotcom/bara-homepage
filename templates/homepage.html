@@ -1,486 +1,393 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BARA — 바라</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BARA — 태국의 맛을 가장 가깝게 | Thai Food Import, Seoul</title>
+<meta name="description" content="BARA는 태국 현지에서 직접 선별한 식품을 한국에 소개하는 서울 브랜드입니다. Thaifex에서 발굴한 첫 라인업을 준비 중입니다." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=Noto+Sans+Thai:wght@400;600&display=swap" rel="stylesheet" />
 <style>
-  /* ===== brand-config.md 기준 컬러 ===== */
-  :root {
-    --color-charcoal: #2B2824;   /* 메인 컬러 — 히어로/푸터/텍스트 */
-    --color-cream: #F2EDE3;      /* 배경 컬러 */
-    --color-sage: #8E9E85;       /* 서브 컬러 — 브랜드 스토리 */
-    --color-sand: #D5C4A2;       /* 보조 배경 — 공지/이벤트 */
-    --color-terracotta: #C0632E; /* 강조 컬러 — 구매 버튼 CTA */
-    --color-ink: #2B2824;        /* 본문 텍스트 */
-    --color-white: #FFFFFF;
-    --nav-height: 56px;
-    --sidebar-width: 180px;
-  }
+:root{
+  --green-deep:#14342B;
+  --green:#1F5C46;
+  --green-soft:#EAF1EC;
+  --chili:#E8442E;
+  --turmeric:#E9A13B;
+  --rice:#FCFBF7;
+  --ink:#17201C;
+  --ink-soft:#5A6660;
+  --line:#DCE4DE;
+  --max:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'IBM Plex Sans KR',sans-serif;
+  background:var(--rice);
+  color:var(--ink);
+  line-height:1.7;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+.en{font-family:'Fraunces',serif}
+.th{font-family:'Noto Sans Thai',sans-serif}
+.kr-serif{font-family:'Gowun Batang',serif}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(252,251,247,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:baseline;gap:10px}
+.logo .en{font-size:1.55rem;font-weight:700;letter-spacing:.02em;color:var(--green-deep)}
+.logo .th{font-size:.85rem;color:var(--ink-soft)}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:.92rem;font-weight:500}
+.nav-links a{color:var(--ink-soft);transition:color .2s}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--green-deep)}
+.btn{
+  display:inline-block;padding:11px 22px;border-radius:999px;
+  font-weight:600;font-size:.92rem;letter-spacing:.01em;
+  transition:transform .15s ease, box-shadow .15s ease, background .2s;
+}
+.btn:focus-visible{outline:3px solid var(--turmeric);outline-offset:2px}
+.btn-primary{background:var(--green-deep);color:#fff}
+.btn-primary:hover{background:var(--green);transform:translateY(-1px)}
+.btn-chili{background:var(--chili);color:#fff}
+.btn-chili:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(232,68,46,.25)}
+.btn-ghost{border:1.5px solid var(--green-deep);color:var(--green-deep)}
+.btn-ghost:hover{background:var(--green-soft)}
 
-  html, body { overflow-x: hidden; max-width: 100%; }
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;padding:96px 0 0}
+.hero-inner{position:relative;z-index:2}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--green);font-weight:600;margin-bottom:22px;
+}
+.eyebrow::before{content:"";width:26px;height:1.5px;background:var(--chili)}
+.hero h1{
+  font-family:'Gowun Batang',serif;
+  font-size:clamp(2.1rem,5vw,3.4rem);
+  line-height:1.32;font-weight:700;color:var(--green-deep);
+  max-width:17ch;
+}
+.hero h1 em{font-style:normal;color:var(--chili)}
+.hero-sub{
+  margin-top:22px;max-width:52ch;color:var(--ink-soft);font-size:1.05rem;font-weight:300;
+}
+.hero-sub .en{font-weight:400;color:var(--green)}
+.hero-cta{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+.hero-watermark{
+  position:absolute;right:-2%;top:8%;z-index:1;
+  font-family:'Noto Sans Thai',sans-serif;font-weight:600;
+  font-size:clamp(9rem,22vw,19rem);line-height:1;
+  color:var(--green-soft);user-select:none;pointer-events:none;
+}
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-    color: var(--color-ink);
-    background: var(--color-cream);
-    line-height: 1.6;
-    font-size: 16px;
-  }
+/* ---------- route ribbon (signature) ---------- */
+.route{margin:88px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+.route-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:26px 0;flex-wrap:wrap;
+}
+.route-city{display:flex;flex-direction:column;gap:2px}
+.route-city .en{font-size:1.25rem;font-weight:600;color:var(--green-deep)}
+.route-city small{font-size:.78rem;color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase}
+.route-line{
+  flex:1;min-width:140px;height:2px;position:relative;
+  background:repeating-linear-gradient(90deg,var(--green) 0 10px,transparent 10px 18px);
+  opacity:.55;
+}
+.route-line::after{
+  content:"→";position:absolute;right:-4px;top:50%;transform:translateY(-58%);
+  color:var(--chili);font-size:1.1rem;background:#fff;padding-left:6px;
+}
+.route-tag{
+  font-size:.8rem;color:var(--green);background:var(--green-soft);
+  border-radius:999px;padding:6px 14px;font-weight:500;white-space:nowrap;
+}
 
-  a { color: inherit; text-decoration: none; }
-  img { max-width: 100%; display: block; }
+/* ---------- sections ---------- */
+section{padding:96px 0}
+.sec-head{margin-bottom:48px}
+.sec-head .tri{
+  font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:14px;display:flex;gap:12px;align-items:center;
+}
+.sec-head .tri b{color:var(--chili);font-weight:600}
+.sec-head h2{
+  font-family:'Gowun Batang',serif;font-size:clamp(1.6rem,3.4vw,2.3rem);
+  color:var(--green-deep);line-height:1.4;font-weight:700;
+}
+.sec-head p{margin-top:14px;color:var(--ink-soft);max-width:60ch;font-weight:300}
 
-  .label {
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
+/* lineup */
+.lineup{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:18px;
+  padding:32px 28px;position:relative;overflow:hidden;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(20,52,43,.08)}
+.card .th{font-size:.82rem;color:var(--turmeric);font-weight:600;margin-bottom:10px;display:block}
+.card h3{font-size:1.15rem;color:var(--green-deep);margin-bottom:10px;font-weight:600}
+.card p{font-size:.92rem;color:var(--ink-soft);font-weight:300}
+.card .status{
+  display:inline-block;margin-top:18px;font-size:.75rem;font-weight:600;
+  color:var(--green);background:var(--green-soft);border-radius:999px;padding:5px 12px;
+  letter-spacing:.04em;
+}
+.lineup-note{
+  margin-top:28px;font-size:.9rem;color:var(--ink-soft);
+  border-left:3px solid var(--turmeric);padding-left:16px;font-weight:300;
+}
 
-  /* ===== GNB ===== */
-  .gnb {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: var(--nav-height);
-    background: var(--color-cream);
-    border-bottom: 1px solid rgba(43,41,37,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 16px;
-    z-index: 100;
-  }
+/* why bara */
+.why{background:var(--green-deep);color:#F2F5F1;border-radius:28px}
+.why-inner{padding:80px 56px}
+.why .sec-head h2{color:#fff}
+.why .sec-head .tri{color:#9DB5A9}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:8px}
+.why-item h3{
+  font-size:1.05rem;font-weight:600;color:#fff;margin-bottom:12px;
+  display:flex;align-items:center;gap:10px;
+}
+.why-item h3::before{
+  content:"";width:8px;height:8px;border-radius:50%;background:var(--chili);flex:none;
+}
+.why-item p{font-size:.92rem;color:#B9C8BF;font-weight:300}
 
-  .gnb-logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: 0.04em;
-    flex-shrink: 0;
-  }
+/* suppliers (EN) */
+.suppliers{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sup-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+.sup-grid h2{
+  font-family:'Fraunces',serif;font-size:clamp(1.7rem,3.2vw,2.4rem);
+  color:var(--green-deep);line-height:1.3;font-weight:600;
+}
+.sup-grid .lead{margin-top:18px;color:var(--ink-soft);font-weight:300}
+.sup-points{list-style:none;margin-top:8px}
+.sup-points li{
+  padding:20px 0;border-bottom:1px solid var(--line);
+  font-size:.95rem;color:var(--ink);font-weight:300;
+}
+.sup-points li:last-child{border-bottom:none}
+.sup-points strong{display:block;font-weight:600;color:var(--green-deep);margin-bottom:4px}
+.sup-cta{margin-top:28px}
 
-  .gnb-logo img {
-    width: 28px; height: 28px;
-    border-radius: 8px;
-  }
+/* footer */
+footer{padding:64px 0 48px;color:var(--ink-soft);font-size:.88rem}
+.foot-grid{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.foot-brand .en{font-size:1.3rem;font-weight:700;color:var(--green-deep)}
+.foot-brand p{margin-top:10px;font-weight:300;max-width:38ch}
+.foot-info{text-align:right;font-weight:300;line-height:2}
+.foot-info a{color:var(--green);font-weight:500}
+.foot-bottom{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:.78rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
-  .gnb-menu {
-    display: flex;
-    gap: 14px;
-    font-size: 13px;
-    overflow-x: auto;
-    white-space: nowrap;
-    min-width: 0;
-  }
-  .gnb-menu a { padding: 4px 2px; min-height: 44px; display: flex; align-items: center; }
+/* reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
 
-  .gnb-store {
-    font-size: 12px;
-    font-weight: 700;
-    border: 1px solid var(--color-ink);
-    padding: 6px 10px;
-    letter-spacing: 0.08em;
-    flex-shrink: 0;
-  }
-
-  .hero-cta {
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    border: 1px solid var(--color-white);
-    color: var(--color-white);
-    padding: 10px 18px;
-  }
-
-  main { padding-top: var(--nav-height); }
-
-  /* ===== 공통 섹션 ===== */
-  section { padding: 56px 20px; }
-  .section-label {
-    font-size: 13px;
-    color: rgba(0,0,0,0.5);
-    margin-bottom: 8px;
-  }
-  .section-title {
-    font-size: 26px;
-    font-weight: 800;
-    letter-spacing: 0.03em;
-    margin-bottom: 24px;
-  }
-
-  /* ===== 히어로 ===== */
-  .hero {
-    background: var(--color-charcoal);
-    color: var(--color-white);
-    text-align: center;
-    padding: 72px 20px;
-  }
-  .hero .tagline {
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    opacity: 0.85;
-    margin-bottom: 16px;
-  }
-  .hero h1 {
-    font-size: 30px;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    margin-bottom: 16px;
-  }
-  .hero p {
-    font-size: 14px;
-    opacity: 0.9;
-    max-width: 420px;
-    margin: 0 auto 28px;
-  }
-  .hero-image-placeholder {
-    margin: 0 auto;
-    max-width: 320px;
-    aspect-ratio: 4/3;
-    border: 1px dashed rgba(255,255,255,0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    opacity: 0.8;
-  }
-
-  .brand-visual {
-    margin: 0 auto;
-    max-width: 320px;
-    aspect-ratio: 4/3;
-    border-radius: 6px;
-    overflow: hidden;
-  }
-  .brand-visual svg { width: 100%; height: 100%; display: block; }
-
-  /* ===== 상품 목록 ===== */
-  .product-section { background: var(--color-cream); }
-  .product-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .product-card {
-    background: var(--color-white);
-    border: 1px solid rgba(0,0,0,0.08);
-  }
-  .product-image-placeholder {
-    aspect-ratio: 1/1;
-    background: repeating-linear-gradient(45deg, #eee, #eee 10px, #f5f5f5 10px, #f5f5f5 20px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    color: #888;
-    text-align: center;
-    padding: 12px;
-  }
-  .product-info { padding: 14px; }
-  .product-name { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-  .product-price { font-size: 14px; color: rgba(0,0,0,0.6); margin-bottom: 12px; }
-  .product-buy {
-    display: block;
-    text-align: center;
-    background: var(--color-terracotta);
-    color: var(--color-white);
-    padding: 12px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-  }
-
-  /* ===== 브랜드 스토리 ===== */
-  .story-section {
-    background: var(--color-sage);
-    color: var(--color-white);
-  }
-  .story-section .section-label { color: rgba(255,255,255,0.7); }
-  .story-text { font-size: 14px; max-width: 560px; }
-
-  /* ===== 공지/이벤트 ===== */
-  .notice-section { background: var(--color-sand); }
-  .notice-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .notice-col-title {
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    border-bottom: 2px solid var(--color-ink);
-    padding-bottom: 8px;
-    margin-bottom: 12px;
-  }
-  .notice-item-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-  .notice-item-desc { font-size: 13px; opacity: 0.8; }
-
-  /* ===== 푸터 ===== */
-  .site-footer {
-    background: var(--color-ink);
-    color: rgba(255,255,255,0.75);
-    padding: 40px 20px;
-    font-size: 13px;
-  }
-  .site-footer .footer-brand {
-    color: var(--color-white);
-    font-weight: 800;
-    font-size: 15px;
-    margin-bottom: 12px;
-    letter-spacing: 0.05em;
-  }
-  .site-footer p { margin-bottom: 4px; }
-  .site-footer .footer-notice {
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(255,255,255,0.15);
-    font-size: 12px;
-    opacity: 0.7;
-  }
-  .site-footer .copyright {
-    margin-top: 20px;
-    font-size: 11px;
-    opacity: 0.5;
-  }
-
-  /* ===== 데스크톱 (768px~) ===== */
-  @media (min-width: 768px) {
-    .gnb {
-      top: 0; left: 0; bottom: 0; right: auto;
-      width: var(--sidebar-width);
-      height: 100vh;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      border-bottom: none;
-      border-right: 1px solid rgba(43,41,37,0.1);
-      padding: 24px 20px;
-      gap: 40px;
-    }
-    .gnb-menu { flex-direction: column; gap: 18px; }
-    .gnb-store {
-      position: fixed;
-      top: 24px; right: 24px;
-    }
-    main, .site-footer { padding-top: 0; margin-left: var(--sidebar-width); }
-
-    section { padding: 96px 64px; }
-
-    .hero { text-align: left; display: flex; align-items: center; gap: 64px; padding: 96px 64px; }
-    .hero-text { flex: 1; }
-    .hero p { margin: 0 0 28px; }
-    .hero-image-placeholder, .brand-visual { flex: 1; max-width: 420px; margin: 0; }
-
-    .product-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
-
-    .story-section { display: flex; gap: 64px; align-items: center; }
-    .story-text { flex: 1; }
-
-    .notice-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
-
-    .site-footer { padding: 48px 64px; }
-  }
+@media (max-width:880px){
+  .lineup{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .why-inner{padding:56px 28px}
+  .sup-grid{grid-template-columns:1fr;gap:36px}
+  .nav-links{gap:18px}
+  .nav-links .hide-m{display:none}
+  .foot-info{text-align:left}
+  section{padding:72px 0}
+}
 </style>
 </head>
 <body>
 
-  <header class="gnb">
-    <a href="#home" class="gnb-logo"><img src="../brand/logo/BARA-icon.png" alt="BARA"> BARA</a>
-    <nav class="gnb-menu">
-      <a href="#home">HOME</a>
-      <a href="#products">상품</a>
-      <a href="#story">브랜드소개</a>
-      <a href="#notice">공지</a>
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="BARA 홈">
+      <span class="en">BARA</span><span class="th">บารา</span>
+    </a>
+    <nav class="nav-links" aria-label="주요 메뉴">
+      <a href="#lineup" class="hide-m">라인업</a>
+      <a href="#about" class="hide-m">브랜드</a>
+      <a href="#suppliers" class="hide-m">For Suppliers</a>
+      <!-- TODO: 스마트스토어 URL로 교체 -->
+      <a class="btn btn-chili" href="https://smartstore.naver.com/" target="_blank" rel="noopener">스마트스토어</a>
     </nav>
-    <!-- href="#"를 스마트스토어/쿠팡 URL로 교체해주세요 -->
-    <a href="#" class="gnb-store" target="_blank" rel="noopener">STORE</a>
-  </header>
+  </div>
+</header>
 
-  <main>
+<main id="top">
 
-    <section id="home" class="hero">
-      <div class="hero-text">
-        <div class="tagline">NEW EXPERIENCE AND HIGH QUALITY</div>
-        <h1>BARA</h1>
-        <p>세계 각지에서 엄선한 좋은 재료를, 정직하게 큐레이션합니다. 과하지 않지만 신뢰가 느껴지는 수입 식품 편집숍, 바라입니다.</p>
-        <!-- href="#"를 스마트스토어/쿠팡 URL로 교체해주세요 -->
-        <a href="#" class="hero-cta" target="_blank" rel="noopener">구경하러 가기</a>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-watermark" aria-hidden="true">บารา</div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Thai Food, Directly Sourced</p>
+      <h1>방콕의 시장에서<br />서울의 식탁까지,<br /><em>바라</em>가 직접 고릅니다.</h1>
+      <p class="hero-sub">
+        BARA는 태국 현지 박람회와 생산자를 직접 찾아가 검증한 식품만을 수입하는 서울의 푸드 브랜드입니다.<br />
+        <span class="en">Curated Thai flavors, brought to Korea.</span>
+      </p>
+      <div class="hero-cta">
+        <!-- TODO: 스마트스토어 URL로 교체 -->
+        <a class="btn btn-primary" href="https://smartstore.naver.com/" target="_blank" rel="noopener">스마트스토어 방문하기</a>
+        <a class="btn btn-ghost" href="#lineup">첫 라인업 미리보기</a>
       </div>
-      <div class="brand-visual">
-        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BARA 브랜드 그래픽 — 올리브, 밀, 시트러스 라인 아트">
-          <circle cx="140" cy="150" r="95" fill="#8E9E85" opacity="0.18"/>
-          <circle cx="270" cy="95" r="65" fill="#C0632E" opacity="0.15"/>
-          <circle cx="250" cy="220" r="55" fill="#D5C4A2" opacity="0.15"/>
-
-          <g stroke="#F2EDE3" stroke-width="2" fill="none" stroke-linecap="round">
-            <path d="M90 230 Q130 190 175 205 Q210 218 235 190"/>
-          </g>
-          <g fill="#8E9E85">
-            <ellipse cx="110" cy="215" rx="10" ry="5" transform="rotate(-30 110 215)"/>
-            <ellipse cx="140" cy="197" rx="10" ry="5" transform="rotate(-15 140 197)"/>
-            <ellipse cx="175" cy="205" rx="10" ry="5" transform="rotate(20 175 205)"/>
-            <ellipse cx="205" cy="196" rx="10" ry="5" transform="rotate(-10 205 196)"/>
-          </g>
-          <g fill="#C0632E">
-            <circle cx="120" cy="228" r="6"/>
-            <circle cx="150" cy="212" r="6"/>
-            <circle cx="185" cy="220" r="6"/>
-          </g>
-
-          <g transform="translate(300 190)">
-            <circle r="42" fill="#D5C4A2" opacity="0.25"/>
-            <g stroke="#F2EDE3" stroke-width="1.2">
-              <line x1="0" y1="0" x2="0" y2="-42"/>
-              <line x1="0" y1="0" x2="36" y2="-21"/>
-              <line x1="0" y1="0" x2="36" y2="21"/>
-              <line x1="0" y1="0" x2="0" y2="42"/>
-              <line x1="0" y1="0" x2="-36" y2="21"/>
-              <line x1="0" y1="0" x2="-36" y2="-21"/>
-            </g>
-            <circle r="42" fill="none" stroke="#F2EDE3" stroke-width="2"/>
-          </g>
-
-          <g transform="translate(75 90)" stroke="#F2EDE3" stroke-width="1.5" fill="none" stroke-linecap="round">
-            <line x1="0" y1="0" x2="0" y2="90"/>
-            <ellipse cx="-8" cy="10" rx="7" ry="4" transform="rotate(-25 -8 10)"/>
-            <ellipse cx="8" cy="22" rx="7" ry="4" transform="rotate(25 8 22)"/>
-            <ellipse cx="-8" cy="34" rx="7" ry="4" transform="rotate(-25 -8 34)"/>
-            <ellipse cx="8" cy="46" rx="7" ry="4" transform="rotate(25 8 46)"/>
-            <ellipse cx="-8" cy="58" rx="7" ry="4" transform="rotate(-25 -8 58)"/>
-          </g>
-
-          <line x1="20" y1="270" x2="70" y2="270" stroke="#D5C4A2" stroke-width="1"/>
-          <line x1="330" y1="270" x2="380" y2="270" stroke="#D5C4A2" stroke-width="1"/>
-        </svg>
-      </div>
-    </section>
-
-    <section id="products" class="product-section">
-      <div class="section-label">PRODUCTS</div>
-      <div class="section-title">인기 상품</div>
-      <div class="product-grid">
-
-        <!-- 아래 4개는 실제 상품 정보가 정해지기 전까지의 예시(임시) 상품입니다. 정해지면 이름/사진/가격/링크를 교체해주세요 -->
-        <div class="product-card">
-          <div class="product-image-placeholder">여기에 상품 사진을 넣으세요</div>
-          <div class="product-info">
-            <div class="product-name">그릭 엑스트라버진 올리브오일</div>
-            <div class="product-price">18,000원</div>
-            <!-- href="#"를 스마트스토어/쿠팡 상품 URL로 교체해주세요 -->
-            <a href="#" class="product-buy" target="_blank" rel="noopener">구매하기</a>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image-placeholder">여기에 상품 사진을 넣으세요</div>
-          <div class="product-info">
-            <div class="product-name">벨기에 다크초콜릿 84%</div>
-            <div class="product-price">12,000원</div>
-            <a href="#" class="product-buy" target="_blank" rel="noopener">구매하기</a>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image-placeholder">여기에 상품 사진을 넣으세요</div>
-          <div class="product-info">
-            <div class="product-name">이탈리아 리제르바 발사믹 식초</div>
-            <div class="product-price">22,000원</div>
-            <a href="#" class="product-buy" target="_blank" rel="noopener">구매하기</a>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image-placeholder">여기에 상품 사진을 넣으세요</div>
-          <div class="product-info">
-            <div class="product-name">프랑스 게랑드 소금</div>
-            <div class="product-price">9,000원</div>
-            <a href="#" class="product-buy" target="_blank" rel="noopener">구매하기</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="story" class="story-section">
-      <div class="brand-visual">
-        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BARA 브랜드 스토리 그래픽 — 수입 식재료 플랫레이 라인 아트">
-          <rect width="400" height="300" fill="#F2EDE3"/>
-          <line x1="30" y1="230" x2="370" y2="230" stroke="#2B2824" stroke-width="1" opacity="0.15"/>
-
-          <g transform="translate(90 230)" stroke="#2B2824" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="-35" y="-110" width="70" height="100" rx="8"/>
-            <rect x="-25" y="-125" width="50" height="18" rx="4" fill="#C0632E" stroke="none"/>
-            <line x1="-35" y1="-70" x2="35" y2="-70" opacity="0.4"/>
-          </g>
-
-          <g transform="translate(200 230)" stroke="#2B2824" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M-10 -150 h20 v25 q15 10 15 30 v85 q0 10 -10 10 h-30 q-10 0 -10 -10 v-85 q0 -20 15 -30 z"/>
-            <rect x="-10" y="-160" width="20" height="12" rx="2" fill="#8E9E85" stroke="none"/>
-            <line x1="-25" y1="-40" x2="25" y2="-40" opacity="0.3"/>
-          </g>
-
-          <g transform="translate(310 230)" stroke="#2B2824" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M-40 -60 q40 30 80 0 l-8 40 q-32 20 -64 0 z"/>
-            <ellipse cx="0" cy="-60" rx="40" ry="10"/>
-          </g>
-
-          <g transform="translate(310 165)" stroke="#8E9E85" stroke-width="1.2" fill="#8E9E85">
-            <path d="M0 0 q10 -20 25 -22" fill="none"/>
-            <ellipse cx="10" cy="-8" rx="5" ry="3" transform="rotate(-30 10 -8)"/>
-            <ellipse cx="20" cy="-16" rx="5" ry="3" transform="rotate(-20 20 -16)"/>
-          </g>
-        </svg>
-      </div>
-      <div class="story-text">
-        <div class="section-label">STORY</div>
-        <div class="section-title">브랜드 이야기</div>
-        <p>바라(BARA)는 2026년 서울에서 시작된 수입 식품 편집숍입니다. 세계 각지의 좋은 재료를 과장 없이, 정직하게 소개하는 것을 가장 중요하게 생각합니다. 오늘의 식탁에 어울리는 한 가지를 정성껏 골라 전해드립니다.</p>
-      </div>
-    </section>
-
-    <section id="notice" class="notice-section">
-      <div class="section-label">NOTICE</div>
-      <div class="section-title">이벤트 &amp; 공지사항</div>
-      <!-- 아래 3개는 예시(임시) 내용입니다. 실제 이벤트/소식/공지가 정해지면 교체해주세요 -->
-      <div class="notice-grid">
-        <div>
-          <div class="notice-col-title">이벤트</div>
-          <div class="notice-item-title">오픈 기념 첫 구매 감사 이벤트</div>
-          <div class="notice-item-desc">BARA 첫 방문을 환영합니다. 자세한 내용은 곧 안내드릴게요.</div>
-        </div>
-        <div>
-          <div class="notice-col-title">소식</div>
-          <div class="notice-item-title">BARA가 문을 열었습니다</div>
-          <div class="notice-item-desc">세계 각지의 좋은 재료를 정직하게 큐레이션하는 BARA를 소개합니다.</div>
-        </div>
-        <div>
-          <div class="notice-col-title">공지사항</div>
-          <div class="notice-item-title">배송 안내</div>
-          <div class="notice-item-desc">평일 오후 2시 전 주문 시 당일 발송됩니다.</div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-brand">BARA</div>
-    <p>대표자: 김우찬</p>
-    <p>연락처: 010-4177-1725</p>
-    <p>이메일: woochn3721@gmail.com</p>
-    <p>주소: [주소를 입력해주세요]</p>
-    <div class="footer-notice">
-      <p>배송 안내: 평일 오후 2시 전 주문 시 당일 발송</p>
-      <p>교환/반품: 수령 후 7일 이내 가능</p>
     </div>
-    <div class="copyright">ⓒ BARA. ALL RIGHTS RESERVED.</div>
-  </footer>
+
+    <!-- signature: sourcing route -->
+    <div class="route">
+      <div class="wrap route-inner">
+        <div class="route-city">
+          <span class="en">Bangkok</span><small>Sourced at THAIFEX 2026</small>
+        </div>
+        <div class="route-line" aria-hidden="true"></div>
+        <div class="route-city">
+          <span class="en">Seoul</span><small>Imported &amp; Curated by BARA</small>
+        </div>
+        <span class="route-tag">현지 직접 소싱 · Direct from producers</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LINEUP -->
+  <section id="lineup">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="tri"><b>01</b> First Lineup · 첫 라인업 · สินค้า</p>
+        <h2>Thaifex 2026에서 직접 발굴한<br />첫 번째 라인업을 준비하고 있습니다</h2>
+        <p>아시아 최대 식품 박람회 THAIFEX-Anuga에서 수백 개 브랜드를 직접 맛보고, 한국 식탁에 어울리는 세 가지 카테고리를 선별했습니다.</p>
+      </div>
+      <div class="lineup">
+        <article class="card reveal">
+          <span class="th">น้ำพริก · Chili Sauce</span>
+          <h3>태국식 칠리 소스 &amp; 딥</h3>
+          <p>크랩에그, 로스티드 쉬림프 페이스트 등 현지에서 사랑받는 딥 소스. 밥, 면, 채소 어디에나 어울리는 태국의 기본기.</p>
+          <span class="status">수입 협의 중</span>
+        </article>
+        <article class="card reveal">
+          <span class="th">ขนม · Snack</span>
+          <h3>태국 스낵</h3>
+          <p>방콕 현지에서 검증된 가벼운 한입 스낵. 한국 소비자에게 낯설지 않으면서도 새로운, 데일리 스낵 라인.</p>
+          <span class="status">수입 협의 중</span>
+        </article>
+        <article class="card reveal">
+          <span class="th">เครื่องปรุง · Seasoning</span>
+          <h3>시즈닝 &amp; 스페셜티 솔트</h3>
+          <p>트러플 시즈닝, 스페셜티 솔트 등 요리의 완성도를 끌어올리는 프리미엄 조미 라인. 홈쿡 트렌드에 맞춘 셀렉션.</p>
+          <span class="status">수입 협의 중</span>
+        </article>
+      </div>
+      <p class="lineup-note reveal">첫 정식 판매는 수입식품 인허가 및 통관 완료 후 스마트스토어에서 시작됩니다. 출시 소식은 인스타그램에서 가장 먼저 알려드릴게요.</p>
+    </div>
+  </section>
+
+  <!-- WHY BARA -->
+  <section id="about" style="padding-top:0">
+    <div class="wrap">
+      <div class="why reveal">
+        <div class="why-inner">
+          <div class="sec-head">
+            <p class="tri"><b>02</b> Why BARA · 바라가 다른 이유</p>
+            <h2>수입만 하는 회사가 아니라,<br />팔리게 만드는 회사입니다</h2>
+          </div>
+          <div class="why-grid">
+            <div class="why-item">
+              <h3>현지 직접 소싱</h3>
+              <p>중간 벤더를 거치지 않습니다. THAIFEX 현장에서 생산자를 직접 만나고, 제품을 직접 맛보고, 조건을 직접 협상합니다.</p>
+            </div>
+            <div class="why-item">
+              <h3>인플루언서 채널 보유</h3>
+              <p>BARA는 자체 인플루언서 채널을 운영합니다. 수입한 제품은 진열되는 데서 끝나지 않고, 콘텐츠로 만들어져 소비자에게 직접 도달합니다.</p>
+            </div>
+            <div class="why-item">
+              <h3>정식 등록 수입 사업자</h3>
+              <p>정식 사업자 등록을 마친 법적 실체로서, 수입식품 관련 인허가 절차를 준수하며 투명하게 운영합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR SUPPLIERS (EN) -->
+  <section id="suppliers" class="suppliers">
+    <div class="wrap sup-grid">
+      <div class="reveal">
+        <p class="eyebrow">For Thai Suppliers &amp; Brands</p>
+        <h2>Looking for a partner<br />in the Korean market?</h2>
+        <p class="lead">
+          BARA is a Seoul-based import and distribution company specializing in curated Thai food products.
+          We help Thai brands enter Korea — not just onto shelves, but into content that consumers actually see.
+        </p>
+        <div class="sup-cta">
+          <!-- TODO: 대표 이메일로 교체 -->
+          <a class="btn btn-primary en" href="mailto:hello@bara.kr">Contact us — Partnership inquiry</a>
+        </div>
+      </div>
+      <ul class="sup-points reveal">
+        <li>
+          <strong>Live e-commerce channels</strong>
+          An active brand storefront and a Naver Smart Store — Korea's leading e-commerce platform — ready to list new products.
+        </li>
+        <li>
+          <strong>In-house influencer marketing</strong>
+          We manage an established social media influencer in Korea, giving your product immediate visibility through authentic content from day one.
+        </li>
+        <li>
+          <strong>Registered import business</strong>
+          A fully registered Korean business entity, equipped to handle formal import transactions and food import regulations.
+        </li>
+        <li>
+          <strong>Flexible first orders</strong>
+          We believe in validating products in-market. We're open to test orders and sample-based evaluation before scaling.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="en">BARA <span class="th" style="font-size:.8rem;color:var(--ink-soft)">บารา</span></span>
+        <p>태국의 맛을 가장 가깝게. 서울 기반 태국 식품 수입 브랜드.</p>
+      </div>
+      <div class="foot-info">
+        <!-- TODO: 실제 정보로 교체 -->
+        상호: 바라(BARA) · 대표: Eric Kim<br />
+        문의: <a href="mailto:hello@bara.kr">hello@bara.kr</a><br />
+        <a href="https://smartstore.naver.com/" target="_blank" rel="noopener">네이버 스마트스토어</a> · <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 BARA. All rights reserved.</span>
+      <span class="en">Bangkok → Seoul, with care.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 
 </body>
 </html>
