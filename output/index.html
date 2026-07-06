@@ -101,14 +101,13 @@ header{
 .route-city .en{font-size:1.25rem;font-weight:600;color:var(--green-deep)}
 .route-city small{font-size:.78rem;color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase}
 .route-line{
-  flex:1;min-width:140px;height:2px;position:relative;
-  background:repeating-linear-gradient(90deg,var(--green) 0 10px,transparent 10px 18px);
+  flex:1;min-width:60px;height:2px;
+  background:repeating-linear-gradient(90deg,var(--green) 0 9px,transparent 9px 17px);
   opacity:.55;
 }
-.route-line::after{
-  content:"⇄";position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);
-  color:var(--chili);font-size:1.1rem;background:#fff;
-  padding:0 14px;min-width:36px;text-align:center;
+.route-arrow{
+  flex:none;color:var(--chili);font-size:1.1rem;
+  padding:0 16px;
 }
 .route-tag{
   font-size:.8rem;color:var(--green);background:var(--green-soft);
@@ -253,6 +252,8 @@ footer{padding:64px 0 48px;color:var(--ink-soft);font-size:.88rem}
         <div class="route-city">
           <span class="en">The World</span><small>Sourced Direct</small>
         </div>
+        <div class="route-line" aria-hidden="true"></div>
+        <span class="route-arrow" aria-hidden="true">⇄</span>
         <div class="route-line" aria-hidden="true"></div>
         <div class="route-city">
           <span class="en">Seoul</span><small>Imported &amp; Curated by BARA</small>
